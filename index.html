@@ -64,54 +64,84 @@ h2{color:#0b5ed7;}
 
 
     
-</div>
-   <div class="tabs">
-  <button class="tab active" data-tab="t1">Хөрөнгө оруулалт</button>
-  <button class="tab" data-tab="t2">ХАА-н салбар</button>
-  <button class="tab" data-tab="t3">Аялал жуулчлал</button>
-</div>
+<div class="tabs-container">
 
-<div id="t1" class="tab-content active">
-  <h2>Хөрөнгө оруулалт</h2>
-  <p>Энд мэдээлэл...</p>
+  <div class="tabs">
+    <button class="tab active" data-tab="invest">Хөрөнгө оруулалт</button>
+    <button class="tab" data-tab="agri">ХАА-н салбар</button>
+    <button class="tab" data-tab="tourism">Аялал жуулчлал</button>
+  </div>
+
+  <div id="invest" class="tab-content active">
+    <h2>Хөрөнгө оруулалт</h2>
+    <p>
+      Аймгийн шинжлэх ухаан, технологи, инновацын бодлого, дэд бүтэц,
+      тээвэр логистик, эрчим хүч, төмөр зам, авто зам,
+      нисэх буудлын ТЭЗҮ зэрэг хөрөнгө оруулалтын мэдээлэл энд орно.
+    </p>
+  </div>
+
+  <div id="agri" class="tab-content">
+    <h2>Хүнс, Хөдөө аж ахуйн салбар</h2>
+    <p>
+      Малын гаралтай түүхий эд боловсруулах,
+      газар тариалан, жимс жимсгэнэ,
+      услалтын систем, хүлэмж, агро инновацийн мэдээлэл энд орно.
+    </p>
+  </div>
+
+  <div id="tourism" class="tab-content">
+    <h2>Аялал жуулчлал</h2>
+    <p>
+      Аялал жуулчлалын бодлогын баримт бичиг,
+      3 маршрут, платформууд,
+      олон улсын үзэсгэлэн, сурталчилгаа энд орно.
+    </p>
+  </div>
+
 </div>
+<div class="tabs-container">
 
-<div id="t2" class="tab-content">
-  <h2>ХАА-н салбар</h2>
-  <p>Энд мэдээлэл...</p>
+  <div class="tabs">
+    <button class="tab active" data-tab="invest">Хөрөнгө оруулалт</button>
+    <button class="tab" data-tab="agri">ХАА-н салбар</button>
+    <button class="tab" data-tab="tourism">Аялал жуулчлал</button>
+  </div>
+
+  <div id="invest" class="tab-content active">
+    <h2>Хөрөнгө оруулалт</h2>
+    <p>
+      Аймгийн шинжлэх ухаан, технологи, инновацын бодлого, дэд бүтэц,
+      тээвэр логистик, эрчим хүч, төмөр зам, авто зам,
+      нисэх буудлын ТЭЗҮ зэрэг хөрөнгө оруулалтын мэдээлэл энд орно.
+    </p>
+  </div>
+
+  <div id="agri" class="tab-content">
+    <h2>Хүнс, Хөдөө аж ахуйн салбар</h2>
+    <p>
+      Малын гаралтай түүхий эд боловсруулах,
+      газар тариалан, жимс жимсгэнэ,
+      услалтын систем, хүлэмж, агро инновацийн мэдээлэл энд орно.
+    </p>
+  </div>
+
+  <div id="tourism" class="tab-content">
+    <h2>Аялал жуулчлал</h2>
+    <p>
+      Аялал жуулчлалын бодлогын баримт бичиг,
+      3 маршрут, платформууд,
+      олон улсын үзэсгэлэн, сурталчилгаа энд орно.
+    </p>
+  </div>
+
 </div>
-
-<div id="t3" class="tab-content">
-  <h2>Аялал жуулчлал</h2>
-  <p>Энд мэдээлэл...</p>
-</div>
-
-<style>
-  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;}
-  .tab{padding:10px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;cursor:pointer}
-  .tab.active{border-color:#0060D4}
-  .tab-content{display:none;padding:14px;border:1px solid #eee;border-radius:12px}
-  .tab-content.active{display:block}
-</style>
-
-<script>
-  const tabs = document.querySelectorAll(".tab");
-  const contents = document.querySelectorAll(".tab-content");
-  tabs.forEach(btn=>{
-    btn.addEventListener("click", ()=>{
-      tabs.forEach(b=>b.classList.remove("active"));
-      contents.forEach(c=>c.classList.remove("active"));
-      btn.classList.add("active");
-      document.getElementById(btn.dataset.tab).classList.add("active");
-    });
-  });
-</script>
  
 
 
 <div class="section">
     <h2>Форумын зорилго</h2>
-    <p>Эдийн засгийн өсөлтийг дэмжих, хөрөнгө оруулалтыг татах...</p>
+    <p>Оролцогчдод тус аймаг дахь хөрөнгө оруулалтын боломжуудыг танилцуулах, орон нутгийн засаг захиргаанаас үзүүлэх хөнгөлөлт, дэмжлэгийн талаар мэдээлэл өгөх....</p>
 
     <h2>Уулзалт</h2>
     <ul>
