@@ -63,8 +63,50 @@ h2{color:#0b5ed7;}
 </div>
 
 
-</div>
     
+</div>
+   <div class="tabs">
+  <button class="tab active" data-tab="t1">Хөрөнгө оруулалт</button>
+  <button class="tab" data-tab="t2">ХАА-н салбар</button>
+  <button class="tab" data-tab="t3">Аялал жуулчлал</button>
+</div>
+
+<div id="t1" class="tab-content active">
+  <h2>Хөрөнгө оруулалт</h2>
+  <p>Энд мэдээлэл...</p>
+</div>
+
+<div id="t2" class="tab-content">
+  <h2>ХАА-н салбар</h2>
+  <p>Энд мэдээлэл...</p>
+</div>
+
+<div id="t3" class="tab-content">
+  <h2>Аялал жуулчлал</h2>
+  <p>Энд мэдээлэл...</p>
+</div>
+
+<style>
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;}
+  .tab{padding:10px 14px;border:1px solid #ddd;border-radius:10px;background:#fff;cursor:pointer}
+  .tab.active{border-color:#0060D4}
+  .tab-content{display:none;padding:14px;border:1px solid #eee;border-radius:12px}
+  .tab-content.active{display:block}
+</style>
+
+<script>
+  const tabs = document.querySelectorAll(".tab");
+  const contents = document.querySelectorAll(".tab-content");
+  tabs.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      tabs.forEach(b=>b.classList.remove("active"));
+      contents.forEach(c=>c.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.tab).classList.add("active");
+    });
+  });
+</script>
+ 
 
 
 <div class="section">
@@ -82,6 +124,7 @@ h2{color:#0b5ed7;}
         <li>10:00 </li>
       
     </ul>
+
 
  <h2>Хариуцсан ажилтан, RSVP</h2>
 <p>Лувсандоржийн Баян-Алтай</p>
