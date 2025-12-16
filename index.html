@@ -64,79 +64,65 @@ h2{color:#0b5ed7;}
 
 
     
-<div class="tabs-container">
-
-  <div class="tabs">
-    <button class="tab active" data-tab="invest">Хөрөнгө оруулалт</button>
-    <button class="tab" data-tab="agri">ХАА-н салбар</button>
-    <button class="tab" data-tab="tourism">Аялал жуулчлал</button>
-  </div>
-
-  <div id="invest" class="tab-content active">
-    <h2>Хөрөнгө оруулалт</h2>
-    <p>
-      Аймгийн шинжлэх ухаан, технологи, инновацын бодлого, дэд бүтэц,
-      тээвэр логистик, эрчим хүч, төмөр зам, авто зам,
-      нисэх буудлын ТЭЗҮ зэрэг хөрөнгө оруулалтын мэдээлэл энд орно.
-    </p>
-  </div>
-
-  <div id="agri" class="tab-content">
-    <h2>Хүнс, Хөдөө аж ахуйн салбар</h2>
-    <p>
-      Малын гаралтай түүхий эд боловсруулах,
-      газар тариалан, жимс жимсгэнэ,
-      услалтын систем, хүлэмж, агро инновацийн мэдээлэл энд орно.
-    </p>
-  </div>
-
-  <div id="tourism" class="tab-content">
-    <h2>Аялал жуулчлал</h2>
-    <p>
-      Аялал жуулчлалын бодлогын баримт бичиг,
-      3 маршрут, платформууд,
-      олон улсын үзэсгэлэн, сурталчилгаа энд орно.
-    </p>
-  </div>
-
+<div class="tabs">
+  <button class="tab active" data-file="invest.htm">Хөрөнгө оруулалт</button>
+  <button class="tab" data-file="agri.htm">ХАА-н салбар</button>
+  <button class="tab" data-file="tourism.htm">Аялал жуулчлал</button>
 </div>
-<div class="tabs-container">
 
-  <div class="tabs">
-    <button class="tab active" data-tab="invest">Хөрөнгө оруулалт</button>
-    <button class="tab" data-tab="agri">ХАА-н салбар</button>
-    <button class="tab" data-tab="tourism">Аялал жуулчлал</button>
-  </div>
+<div id="tabBox" class="tab-content">Ачаалж байна...</div>
 
-  <div id="invest" class="tab-content active">
-    <h2>Хөрөнгө оруулалт</h2>
-    <p>
-      Аймгийн шинжлэх ухаан, технологи, инновацын бодлого, дэд бүтэц,
-      тээвэр логистик, эрчим хүч, төмөр зам, авто зам,
-      нисэх буудлын ТЭЗҮ зэрэг хөрөнгө оруулалтын мэдээлэл энд орно.
-    </p>
-  </div>
+<script>
+const tabs = document.querySelectorAll(".tab");
+const box = document.getElementById("tabBox");
 
-  <div id="agri" class="tab-content">
-    <h2>Хүнс, Хөдөө аж ахуйн салбар</h2>
-    <p>
-      Малын гаралтай түүхий эд боловсруулах,
-      газар тариалан, жимс жимсгэнэ,
-      услалтын систем, хүлэмж, агро инновацийн мэдээлэл энд орно.
-    </p>
-  </div>
+async function loadFile(file){
+  const res = await fetch(file);
+  const html = await res.text();
+  box.innerHTML = html;
+}
 
-  <div id="tourism" class="tab-content">
-    <h2>Аялал жуулчлал</h2>
-    <p>
-      Аялал жуулчлалын бодлогын баримт бичиг,
-      3 маршрут, платформууд,
-      олон улсын үзэсгэлэн, сурталчилгаа энд орно.
-    </p>
-  </div>
+tabs.forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    tabs.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    loadFile(btn.dataset.file);
+  });
+});
 
+// default
+loadFile("invest.htm");
+</script>
+<div class="tabs">
+  <button class="tab active" data-file="invest.htm">Хөрөнгө оруулалт</button>
+  <button class="tab" data-file="agri.htm">ХАА-н салбар</button>
+  <button class="tab" data-file="tourism.htm">Аялал жуулчлал</button>
 </div>
- 
+
+<div id="tabBox" class="tab-content">Ачаалж байна...</div>
+
+<script>
+const tabs = document.querySelectorAll(".tab");
+const box = document.getElementById("tabBox");
+
+async function loadFile(file){
+  const res = await fetch(file);
+  const html = await res.text();
+  box.innerHTML = html;
+}
+
+tabs.forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    tabs.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    loadFile(btn.dataset.file);
+  });
+});
+
+// default
+loadFile("invest.htm");
+</script>
+
 
 
 <div class="section">
