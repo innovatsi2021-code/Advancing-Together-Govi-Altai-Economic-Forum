@@ -68,7 +68,7 @@ h2{color:#0b5ed7;}
   <button class="tab active" data-file="invest.htm">Хөрөнгө оруулалт</button>
   <button class="tab" data-file="agri.htm">ХАА-н салбар</button>
   <button class="tab" data-file="tourism.htm">Аялал жуулчлал</button>
-    <button class="tab" data-file="mining.htm">Уул уурхай</button>
+  <button class="tab" data-file="mining.htm">Уул уурхай</button>
 </div>
 
 <div id="tabBox" class="tab-content">Ачаалж байна...</div>
@@ -78,9 +78,15 @@ const tabs = document.querySelectorAll(".tab");
 const box = document.getElementById("tabBox");
 
 async function loadFile(file){
-  const res = await fetch(file);
-  const html = await res.text();
-  box.innerHTML = html;
+  try {
+    const res = await fetch(file);
+    if (!res.ok) throw new Error(res.status + " " + res.statusText);
+    const html = await res.text();
+    box.innerHTML = html;
+  } catch (e) {
+    box.innerHTML = `<div style="padding:12px">Файл ачаалж чадсангүй: <b>${file}</b></div>`;
+    console.error(e);
+  }
 }
 
 tabs.forEach(btn=>{
@@ -98,9 +104,39 @@ loadFile("invest.htm");
   <button class="tab active" data-file="invest.htm">Хөрөнгө оруулалт</button>
   <button class="tab" data-file="agri.htm">ХАА-н салбар</button>
   <button class="tab" data-file="tourism.htm">Аялал жуулчлал</button>
-<button class="tab" data-file="mining.htm">Уул уурхай</button>
-
+  <button class="tab" data-file="mining.htm">Уул уурхай</button>
 </div>
+
+<div id="tabBox" class="tab-content">Ачаалж байна...</div>
+
+<script>
+const tabs = document.querySelectorAll(".tab");
+const box = document.getElementById("tabBox");
+
+async function loadFile(file){
+  try {
+    const res = await fetch(file);
+    if (!res.ok) throw new Error(res.status + " " + res.statusText);
+    const html = await res.text();
+    box.innerHTML = html;
+  } catch (e) {
+    box.innerHTML = `<div style="padding:12px">Файл ачаалж чадсангүй: <b>${file}</b></div>`;
+    console.error(e);
+  }
+}
+
+tabs.forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    tabs.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    loadFile(btn.dataset.file);
+  });
+});
+
+// default
+loadFile("invest.htm");
+</script>
+v
 
 <div id="tabBox" class="tab-content">Ачаалж байна...</div>
 
