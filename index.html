@@ -4,304 +4,35 @@
 <meta charset="UTF-8">
 <title>Эдийн засгийн форум 2026</title>
 <style>
-body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    background:#f5f7fb;
-}
-.header{
-  background:#0b5ed7;
-  color:white;
-  padding:40px;
-  text-align:center;
-}
-
-
-.section{
-    max-width:900px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    margin-top:-20px;
-    box-shadow:0 0 20px rgba(0,0,0,0.1);
-}
-h2{color:#0b5ed7;}
-.footer{
-    text-align:center;
-    padding:20px;
-    color:#777;
-}
-    .sub{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  margin-top:10px;
-}
-
-.logo{
-  height:34px;
-  width:auto;
-}
-
+body { font-family: Arial; margin:0; background:#f5f7fb; }
+.header{ background:#0b5ed7; color:white; padding:40px; text-align:center; }
+.section{ max-width:900px; margin:auto; background:white; padding:30px; margin-top:-20px; box-shadow:0 0 20px rgba(0,0,0,0.1); }
+h2{ color:#0b5ed7; }
+.footer{ text-align:center; padding:20px; color:#777; }
+.sub{ display:flex; align-items:center; justify-content:center; gap:10px; margin-top:10px; }
+.logo{ height:34px; width:auto; }
+.tabs{ text-align:center; margin:25px 0; }
+.tab{ padding:12px 25px; border:none; border-radius:6px; margin:0 5px; cursor:pointer; }
+.tab.active{ background:#005baa; color:white; }
+#tabBox{ max-width:900px; margin:auto; padding:20px; background:#fff; box-shadow:0 0 20px rgba(0,0,0,0.1); }
 </style>
 </head>
-
-
 <body>
 
 <div class="header">
   <h1>GOBI-ALTAI INVESTMENT FORUM 2026</h1>
-
   <p class="sub">
     <img src="aimag logo.png" alt="logo" class="logo">
     <span>Говь-Алтай аймаг</span>
   </p> 
-    <img src="forum.jpg"
-     alt="Форумын баннер"
-     style="width:100%; max-height:1000px; object-fit:cover;">
-</div>
-<div style="text-align:center; margin:25px;">
- <!DOCTYPE html>
-<html lang="mn">
-<head>
-<meta charset="UTF-8">
-<title>Эдийн засгийн форум 2026</title>
-<style>
-body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    background:#f5f7fb;
-}
-.header{
-  background:#0b5ed7;
-  color:white;
-  padding:40px;
-  text-align:center;
-}
-
-
-.section{
-    max-width:900px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    margin-top:-20px;
-    box-shadow:0 0 20px rgba(0,0,0,0.1);
-}
-h2{color:#0b5ed7;}
-.footer{
-    text-align:center;
-    padding:20px;
-    color:#777;
-}
-    .sub{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  margin-top:10px;
-}
-
-.logo{
-  height:34px;
-  width:auto;
-}
-
-</style>
-</head>
-
-
-<body>
-
-<div class="header">
-  <h1>GOBI-ALTAI INVESTMENT FORUM 2026</h1>
-
-  <p class="sub">
-    <img src="aimag logo.png" alt="logo" class="logo">
-    <span>Говь-Алтай аймаг</span>
-  </p> 
-    <img src="forum.jpg"
-     alt="Форумын баннер"
-     style="width:100%; max-height:1000px; object-fit:cover;">
-</div>
-<div style="text-align:center; margin:25px;">
-  <a href="program-mn.pdf" target="_blank"
-     style="padding:12px 25px; background:#005baa; color:white; text-decoration:none; border-radius:6px;">
-     🇲🇳 Хөтөлбөр (MN)
-  </a>
-
-  <a href="program-en.pdf" target="_blank"
-     style="padding:12px 25px; background:#f04e23; color:white; text-decoration:none; border-radius:6px; margin-left:10px;">
-     🇬🇧 Program (EN)
-  </a>
+  <img src="forum.jpg" alt="Форумын баннер" style="width:100%; max-height:600px; object-fit:cover;">
 </div>
 
 <div style="text-align:center; margin:25px;">
-
-  <button onclick="showIntro()"
-    style="padding:12px 25px; background:#005baa; color:white; border-radius:6px;">
-    Танилцуулга
-      <div id="introSection" style="display:none;">
-
-  <div class="tabs">
-    <button class="tab" data-file="invest.htm">Хөрөнгө оруулалт</button>
-    <button class="tab" data-file="agri.htm">ХАА-н салбар</button>
-    <button class="tab" data-file="tourism.htm">Аялал жуулчлал</button>
-    <button class="tab" data-file="mining.htm">Уул уурхай</button>
-  </div>
-
-  <div id="tabBox">Сонголтоо дарна уу...</div>
-
-</div>
-  </button>
-
-  <a href="program-mn.pdf" target="_blank"
-     style="padding:12px 25px; background:#28a745; color:white; border-radius:6px; margin-left:10px;">
-     🇲🇳 Хөтөлбөр (MN)
-  </a>
-
-  <a href="program-en.pdf" target="_blank"
-     style="padding:12px 25px; background:#f04e23; color:white; border-radius:6px; margin-left:10px;">
-     🇬🇧 Program (EN)
-  </a>
-
-
-const tabs = document.querySelectorAll(".tab");
-const box = document.getElementById("tabBox");
-
-async function loadFile(file){
-  try {
-    const res = await fetch(file);
-    if (!res.ok) throw new Error(res.status + " " + res.statusText);
-    const html = await res.text();
-    box.innerHTML = html;
-  } catch (e) {
-    box.innerHTML = `<div style="padding:12px">Файл ачаалж чадсангүй: <b>${file}</b></div>`;
-    console.error(e);
-  }
-}
-
-tabs.forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    tabs.forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    loadFile(btn.dataset.file);
-  });
-});
-
-// default
-loadFile("invest.htm");
-</script>
-v
-
-<div id="tabBox" class="tab-content">Ачаалж байна...</div>
-
-<script>
-const tabs = document.querySelectorAll(".tab");
-const box = document.getElementById("tabBox");
-
-async function loadFile(file){
-  const res = await fetch(file);
-  const html = await res.text();
-  box.innerHTML = html;
-}
-
-tabs.forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    tabs.forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    loadFile(btn.dataset.file);
-  });
-});
-
-// default
-loadFile("invest.htm");
-</script>
-
-
-
-<div class="section">
-    <h2>Форумын зорилго</h2>
-    <p>Оролцогчдод тус аймаг дахь хөрөнгө оруулалтын боломжуудыг танилцуулах, орон нутгийн засаг захиргаанаас үзүүлэх хөнгөлөлт, дэмжлэгийн талаар мэдээлэл өгөх....</p>
-
-    <h2>Уулзалт</h2>
-    <ul>
-        <li>2026.03.19-21 </li>
-        
-    </ul>
-     <h2>Хэдэн цагт</h2>
-    <ul>
-
-        <li>10:00 </li>
-      
-    </ul>
-
-
- <h2>Хариуцсан ажилтан, RSVP</h2>
-<p>Лувсандоржийн Баян-Алтай</p>
-<p>📞 <a href="tel:+97699117919">+976 9911 7919</a></p>
-<p>📧 <a href="mailto:Altai@rocketmail.com">Altai@rocketmail.com</a></p>
-
-
-<div class="footer">
-    © 2026 Эдийн засаг, хөрөнгө оруулалтын форум
+  <a href="program-mn.pdf" target="_blank" style="padding:12px 25px; background:#005baa; color:white; text-decoration:none; border-radius:6px;">🇲🇳 Хөтөлбөр (MN)</a>
+  <a href="program-en.pdf" target="_blank" style="padding:12px 25px; background:#f04e23; color:white; text-decoration:none; border-radius:6px; margin-left:10px;">🇬🇧 Program (EN)</a>
 </div>
 
-</body>
-</html>
-<button onclick="showIntro()" style="background:#005baa;">
-    Танилцуулга
-  </button>
-  <a href="program-mn.pdf" target="_blank"
-     style="padding:12px 25px; background:#005baa; color:white; text-decoration:none; border-radius:6px;">
-     🇲🇳 Хөтөлбөр (MN)
-  </a>
-
-  <a href="program-en.pdf" target="_blank"
-     style="padding:12px 25px; background:#f04e23; color:white; text-decoration:none; border-radius:6px; margin-left:10px;">
-     🇬🇧 Program (EN)
-  </a>
-</div>
-
-    
-<div class="tabs">
-  
-    <button class="tab active" data-file="invest.htm">Хөрөнгө оруулалт</button>
-  <button class="tab" data-file="agri.htm">ХАА-н салбар</button>
-  <button class="tab" data-file="tourism.htm">Аялал жуулчлал</button>
-  <button class="tab" data-file="mining.htm">Уул уурхай</button>
-</div>
-
-<div id="tabBox" class="tab-content">Ачаалж байна...</div>
-
-<script>
-const tabs = document.querySelectorAll(".tab");
-const box = document.getElementById("tabBox");
-
-async function loadFile(file){
-  try {
-    const res = await fetch(file);
-    if (!res.ok) throw new Error(res.status + " " + res.statusText);
-    const html = await res.text();
-    box.innerHTML = html;
-  } catch (e) {
-    box.innerHTML = `<div style="padding:12px">Файл ачаалж чадсангүй: <b>${file}</b></div>`;
-    console.error(e);
-  }
-}
-
-tabs.forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    tabs.forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    loadFile(btn.dataset.file);
-  });
-});
-
-// default
-loadFile("invest.htm");
-</script>
 <div class="tabs">
   <button class="tab active" data-file="invest.htm">Хөрөнгө оруулалт</button>
   <button class="tab" data-file="agri.htm">ХАА-н салбар</button>
@@ -309,7 +40,7 @@ loadFile("invest.htm");
   <button class="tab" data-file="mining.htm">Уул уурхай</button>
 </div>
 
-<div id="tabBox" class="tab-content">Ачаалж байна...</div>
+<div id="tabBox">Ачаалж байна...</div>
 
 <script>
 const tabs = document.querySelectorAll(".tab");
@@ -338,56 +69,19 @@ tabs.forEach(btn=>{
 // default
 loadFile("invest.htm");
 </script>
-v
-
-<div id="tabBox" class="tab-content">Ачаалж байна...</div>
-
-<script>
-const tabs = document.querySelectorAll(".tab");
-const box = document.getElementById("tabBox");
-
-async function loadFile(file){
-  const res = await fetch(file);
-  const html = await res.text();
-  box.innerHTML = html;
-}
-
-tabs.forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    tabs.forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    loadFile(btn.dataset.file);
-  });
-});
-
-// default
-loadFile("invest.htm");
-</script>
-
-
 
 <div class="section">
     <h2>Форумын зорилго</h2>
-    <p>Оролцогчдод тус аймаг дахь хөрөнгө оруулалтын боломжуудыг танилцуулах, орон нутгийн засаг захиргаанаас үзүүлэх хөнгөлөлт, дэмжлэгийн талаар мэдээлэл өгөх....</p>
-
+    <p>Оролцогчдод тус аймаг дахь хөрөнгө оруулалтын боломжуудыг танилцуулах, орон нутгийн засаг захиргаанаас үзүүлэх хөнгөлөлт, дэмжлэгийн талаар мэдээлэл өгөх.</p>
     <h2>Уулзалт</h2>
-    <ul>
-        <li>2026.03.19-21 </li>
-        
-    </ul>
-     <h2>Хэдэн цагт</h2>
-    <ul>
-
-        <li>10:00 </li>
-      
-    </ul>
-
-
- <h2>Хариуцсан ажилтан, RSVP</h2>
-<p>Лувсандоржийн Баян-Алтай</p>
-<p>📞 <a href="tel:+97699117919">+976 9911 7919</a></p>
-<p>📧 <a href="mailto:Altai@rocketmail.com">Altai@rocketmail.com</a></p>
-
+    <ul><li>2026.03.19-21</li></ul>
+    <h2>Хэдэн цагт</h2>
+    <ul><li>10:00</li></ul>
+    <h2>Хариуцсан ажилтан, RSVP</h2>
+    <p>Лувсандоржийн Баян-Алтай</p>
+    <p>📞 <a href="tel:+97699117919">+976 9911 7919</a></p>
+    <p>📧 <a href="mailto:Altai@rocketmail.com">Altai@rocketmail.com</a></p>
+</div>
 
 <div class="footer">
     © 2026 Эдийн засаг, хөрөнгө оруулалтын форум
