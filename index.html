@@ -50,7 +50,44 @@ h2{ color:#0b5ed7; }
   <a href="program-mn.pdf" target="_blank" class="btn blue">🇲🇳 Хөтөлбөр (MN)</a>
   <a href="program-en.pdf" target="_blank" class="btn orange">🇬🇧 Program (EN)</a>
   </div>
-  
+<div id="tabsContainer">
+
+  <div class="tabs">
+    <button class="tab active" data-file="program-mn.html">Хөтөлбөр</button>
+    <button class="tab" data-file="program-en.html">Program</button>
+    <button class="tab" data-file="sponsor.html">Ивээн тэтгэгч байгууллагууд</button>
+  </div>
+
+  <div id="tabBox">Ачаалж байна...</div>
+
+</div> 
+  <script>
+const tabs = document.querySelectorAll(".tab");
+const box = document.getElementById("tabBox");
+
+async function loadFile(file){
+  try {
+    const res = await fetch(file);
+    if (!res.ok) throw new Error(res.status + " " + res.statusText);
+    const html = await res.text();
+    box.innerHTML = html;
+  } catch (e) {
+    box.innerHTML = `<div style="padding:12px">Файл ачаалж чадсангүй: <b>${file}</b></div>`;
+    console.error(e);
+  }
+}
+
+tabs.forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    tabs.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    loadFile(btn.dataset.file);
+  });
+});
+
+// default
+loadFile("program-mn.html");
+</script>
 <div class="section">
 
   <h2>Хөтөлбөр</h2>
@@ -66,7 +103,7 @@ h2{ color:#0b5ed7; }
 
 </div>
 <div class="section">
-  <h2>Program (English)</h2>
+  <h2>Program</h2>
   <img src="enpage1.jpg" style="width:100%; margin-bottom:20px;">
   <img src="enpage2.jpg" style="width:100%; margin-bottom:20px;">
   <img src="enpage3.jpg" style="width:100%; margin-bottom:20px;">
