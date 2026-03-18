@@ -15,6 +15,19 @@ h2{ color:#0b5ed7; }
 .tab{ padding:12px 25px; border:none; border-radius:6px; margin:0 5px; cursor:pointer; }
 .tab.active{ background:#005baa; color:white; }
 #tabBox{ max-width:900px; margin:auto; padding:20px; background:#fff; box-shadow:0 0 20px rgba(0,0,0,0.1); }
+  .btn{
+  padding:12px 25px;
+  color:white !important;
+  text-decoration:none;
+  border-radius:6px;
+  border:none;
+  cursor:pointer;
+  display:inline-block;
+}
+
+.blue{ background:#005baa !important; }
+.orange{ background:#f04e23 !important; }
+.gray{ background:#6c757d !important; }
 </style>
 </head>
 <body>
@@ -28,8 +41,8 @@ h2{ color:#0b5ed7; }
   <img src="ужуужу.png" alt="Форумын баннер" style="width:100%; max-height:600px; object-fit:cover;">
 </div>
 <div style="text-align:center; margin:25px;">
-  <a href="program-mn.pdf" target="_blank" class="btn blue">🇲🇳 Хөтөлбөр (MN)</a>
-  <a href="program-en.pdf" target="_blank" class="btn orange">🇬🇧 Program (EN)</a>
+ <a href="program-mn.pdf" target="_blank" class="btn blue">🇲🇳 Хөтөлбөр (MN)</a>
+<a href="program-en.pdf" target="_blank" class="btn orange">🇬🇧 Program (EN)</a>
   <button onclick="toggleTabs()" class="btn gray">📊 Танилцуулга</button>
 </div>
 
@@ -44,9 +57,7 @@ h2{ color:#0b5ed7; }
 
   <div id="tabBox">Ачаалж байна...</div>
 
-</div>
 
-<div id="tabBox">Ачаалж байна...</div>
 
 <script>
 const tabs = document.querySelectorAll(".tab");
