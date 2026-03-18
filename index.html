@@ -2,74 +2,142 @@
 <html lang="mn">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Эдийн засгийн форум 2026</title>
+
 <style>
-body { font-family: Arial; margin:0; background:#f5f7fb; }
-.header{ background:#0b5ed7; color:white; padding:40px; text-align:center; }
-.section{ max-width:900px; margin:auto; background:white; padding:30px; margin-top:-20px; box-shadow:0 0 20px rgba(0,0,0,0.1); }
-h2{ color:#0b5ed7; }
-.footer{ text-align:center; padding:20px; color:#777; }
-.sub{ display:flex; align-items:center; justify-content:center; gap:10px; margin-top:10px; }
-.logo{ height:34px; width:auto; }
-.tabs{ text-align:center; margin:25px 0; }
-.tab{ padding:12px 25px; border:none; border-radius:6px; margin:0 5px; cursor:pointer; }
-.tab.active{ background:#005baa; color:white; }
-#tabBox{ max-width:900px; margin:auto; padding:20px; background:#fff; box-shadow:0 0 20px rgba(0,0,0,0.1); }
-  .btn{
-  padding:12px 25px;
-  color:white !important;
-  text-decoration:none;
-  border-radius:6px;
-  border:none;
-  cursor:pointer;
-  display:inline-block;
+body{
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:#f5f7fb;
 }
 
-.blue{ background:#005baa !important; }
-.orange{ background:#f04e23 !important; }
-.gray{ background:#6c757d !important; }
-  .section img{
+/* HEADER */
+.header{
+  background:#0b5ed7;
+  color:white;
+  padding:40px 20px;
+  text-align:center;
+}
+
+.sub{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-top:10px;
+}
+
+.logo{
+  height:34px;
+}
+
+/* TABS */
+.tabs{
+  text-align:center;
+  margin:30px 0;
+}
+
+.tab{
+  padding:12px 25px;
+  border:none;
+  border-radius:6px;
+  margin:5px;
+  cursor:pointer;
+  background:#6c757d;
+  color:white;
+  transition:0.3s;
+}
+
+.tab:hover{
+  opacity:0.85;
+}
+
+.tab.active{
+  background:#005baa;
+}
+
+/* TAB CONTENT */
+#tabBox{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+  background:white;
+  box-shadow:0 0 20px rgba(0,0,0,0.1);
+  border-radius:8px;
+}
+
+/* SECTION */
+.section{
+  max-width:900px;
+  margin:30px auto;
+  background:white;
+  padding:30px;
+  box-shadow:0 0 20px rgba(0,0,0,0.1);
+  border-radius:8px;
+}
+
+.section img{
   width:100%;
   height:auto;
   display:block;
   margin-bottom:20px;
-    .blue{ background:#005baa; color:white; }
-.orange{ background:#f04e23; color:white; }
-.gray{ background:#6c757d; color:white; }
+}
+
+/* BUTTONS */
+.btn{
+  padding:12px 25px;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+  display:inline-block;
+}
+
+.blue{ background:#005baa; }
+.orange{ background:#f04e23; }
+.gray{ background:#6c757d; }
+
+.footer{
+  text-align:center;
+  padding:20px;
+  color:#777;
+  margin-top:20px;
 }
 </style>
 </head>
+
 <body>
 
 <div class="header">
   <h1>GOBI-ALTAI INVESTMENT FORUM 2026</h1>
   <p class="sub">
-    <img src="aimag logo.png" alt="logo" class="logo">
+    <img src="aimag logo.png" class="logo">
     <span>Говь-Алтай аймаг</span>
-  </p> 
-  <img src="ужуужу.png" alt="Форумын баннер" style="width:100%; max-height:600px; object-fit:cover;">
+  </p>
 </div>
 
-<div id="tabsContainer">
-
- <div class="tabs">
-  <button class="tab active blue" data-file="program-mn.html">Хөтөлбөр</button>
-  <button class="tab orange" data-file="program-en.html">Program</button>
-  <button class="tab gray" data-file="sponsor.html">Ивээн тэтгэгч байгууллагууд</button>
+<!-- TAB BUTTONS -->
+<div class="tabs">
+  <button class="tab active" data-file="program-mn.html">Хөтөлбөр</button>
+  <button class="tab" data-file="program-en.html">Program</button>
+  <button class="tab" data-file="sponsor.html">Ивээн тэтгэгч</button>
 </div>
 
-  <div id="tabBox">Ачаалж байна...</div>
-
-</div>
+<!-- TAB CONTENT -->
+<div id="tabBox">Ачаалж байна...</div>
 
 <script>
 const tabs = document.querySelectorAll(".tab");
 const box = document.getElementById("tabBox");
 
 async function loadFile(file){
-  const res = await fetch(file);
-  const html = await res.text();
-  box.innerHTML = html;
+  try{
+    const res = await fetch(file);
+    const html = await res.text();
+    box.innerHTML = html;
+  }catch(err){
+    box.innerHTML = "Файл ачаалж чадсангүй.";
+  }
 }
 
 tabs.forEach(btn=>{
@@ -80,24 +148,28 @@ tabs.forEach(btn=>{
   });
 });
 
-// default
+/* Default load */
 loadFile("program-mn.html");
 </script>
+
+<!-- INFO SECTION -->
 <div class="section">
-    <h2>Форумын зорилго</h2>
-    <p>Оролцогчдод тус аймаг дахь хөрөнгө оруулалтын боломжуудыг танилцуулах, орон нутгийн засаг захиргаанаас үзүүлэх хөнгөлөлт, дэмжлэгийн талаар мэдээлэл өгөх.</p>
-    <h2>Уулзалт</h2>
-    <ul><li>2026.03.19-21</li></ul>
-    <h2>Хэдэн цагт</h2>
-    <ul><li>08:30AM</li></ul>
-    <h2>Хариуцсан ажилтан, RSVP</h2>
-    <p>Лувсандоржийн Баян-Алтай</p>
-    <p>📞 <a href="tel:+97699117919">+976 9911 7919</a></p>
-    <p>📧 <a href="mailto:Altai@rocketmail.com">Altai@rocketmail.com</a></p>
+  <h2>Форумын зорилго</h2>
+  <p>
+    Оролцогчдод хөрөнгө оруулалтын боломжуудыг танилцуулах.
+  </p>
+
+  <h2>Уулзалт</h2>
+  <p>2026.03.19-21</p>
+
+  <h2>Хариуцсан ажилтан</h2>
+  <p>Лувсандоржийн Баян-Алтай</p>
+  <p>📞 <a href="tel:+97699117919">+976 9911 7919</a></p>
+  <p>📧 <a href="mailto:Altai@rocketmail.com">Altai@rocketmail.com</a></p>
 </div>
 
 <div class="footer">
-    © 2026 Эдийн засаг, хөрөнгө оруулалтын форум
+  © 2026 Эдийн засаг, хөрөнгө оруулалтын форум
 </div>
 
 </body>
