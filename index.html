@@ -43,49 +43,31 @@ h2{ color:#0b5ed7; }
 <div style="text-align:center; margin:25px;">
   <a href="program-mn.pdf" target="_blank" class="btn blue">🇲🇳 Хөтөлбөр (MN)</a>
   <a href="program-en.pdf" target="_blank" class="btn orange">🇬🇧 Program (EN)</a>
-</div>
+  </div>
+  
+<div class="section">
+
   <h2>Хөтөлбөр</h2>
 
-  <img src="program/page1.png" style="width:100%; margin-bottom:20px;">
-  <img src="program/page2.png" style="width:100%; margin-bottom:20px;">
-  <img src="program/page3.png" style="width:100%; margin-bottom:20px;">
-  <img src="program/page4.png" style="width:100%; margin-bottom:20px;">
-  <img src="program/page5.png" style="width:100%; margin-bottom:20px;">
-  <img src="program/page6.png" style="width:100%; margin-bottom:20px;">
-  <img src="program/page7.png" style="width:100%; margin-bottom:20px;">
-  <img src="program/page8.png" style="width:100%; margin-bottom:20px;">
+  <img src="program/page1.jpg" style="width:100%; margin-bottom:20px;">
+  <img src="program/page2.jpg" style="width:100%; margin-bottom:20px;">
+  <img src="program/page3.jpg" style="width:100%; margin-bottom:20px;">
+  <img src="program/page4.jpg" style="width:100%; margin-bottom:20px;">
+  <img src="program/page5.jpg" style="width:100%; margin-bottom:20px;">
+  <img src="program/page6.jpg" style="width:100%; margin-bottom:20px;">
+  <img src="program/page7.jpg" style="width:100%; margin-bottom:20px;">
+  <img src="program/page8.jpg" style="width:100%; margin-bottom:20px;">
 
 </div>
 
-
-
-<script>
-const tabs = document.querySelectorAll(".tab");
-const box = document.getElementById("tabBox");
-
-async function loadFile(file){
-  try {
-    const res = await fetch(file);
-    if (!res.ok) throw new Error(res.status + " " + res.statusText);
-    const html = await res.text();
-    box.innerHTML = html;
-  } catch (e) {
-    box.innerHTML = `<div style="padding:12px">Файл ачаалж чадсангүй: <b>${file}</b></div>`;
-    console.error(e);
-  }
+.section img{
+  width:100%;
+  height:auto;
+  display:block;
 }
 
-tabs.forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    tabs.forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    loadFile(btn.dataset.file);
-  });
-});
 
-// default
-;
-</script>
+
 
 <div class="section">
     <h2>Форумын зорилго</h2>
