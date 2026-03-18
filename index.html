@@ -2,111 +2,46 @@
 <html lang="mn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Эдийн засгийн форум 2026</title>
-
 <style>
-body{
-  font-family: Arial, sans-serif;
-  margin:0;
-  background:#f5f7fb;
-}
-
-/* HEADER */
-.header{
-  background:#0b5ed7;
-  color:white;
-  padding:40px 20px;
-  text-align:center;
-}
-
-.sub{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  margin-top:10px;
-}
-
-.logo{
-  height:34px;
-}
-
-/* TABS */
-.tabs{
-  text-align:center;
-  margin:30px 0;
-}
-
-.tab{
+body { font-family: Arial; margin:0; background:#f5f7fb; }
+.header{ background:#0b5ed7; color:white; padding:40px; text-align:center; }
+.section{ max-width:900px; margin:auto; background:white; padding:30px; margin-top:-20px; box-shadow:0 0 20px rgba(0,0,0,0.1); }
+h2{ color:#0b5ed7; }
+.footer{ text-align:center; padding:20px; color:#777; }
+.sub{ display:flex; align-items:center; justify-content:center; gap:10px; margin-top:10px; }
+.logo{ height:34px; width:auto; }
+.tabs{ text-align:center; margin:25px 0; }
+.tab{ padding:12px 25px; border:none; border-radius:6px; margin:0 5px; cursor:pointer; }
+.tab.active{ background:#005baa; color:white; }
+#tabBox{ max-width:900px; margin:auto; padding:20px; background:#fff; box-shadow:0 0 20px rgba(0,0,0,0.1); }
+  .btn{
   padding:12px 25px;
-  border:none;
+  color:white !important;
+  text-decoration:none;
   border-radius:6px;
-  margin:5px;
+  border:none;
   cursor:pointer;
-  background:#6c757d;
-  color:white;
-  transition:0.3s;
+  display:inline-block;
 }
 
-.tab:hover{
-  opacity:0.85;
-}
-
-.tab.active{
-  background:#005baa;
-}
-
-/* TAB CONTENT */
-#tabBox{
-  max-width:900px;
-  margin:auto;
-  padding:20px;
-  background:white;
-  box-shadow:0 0 20px rgba(0,0,0,0.1);
-  border-radius:8px;
-}
-
-/* SECTION */
-.section{
-  max-width:900px;
-  margin:30px auto;
-  background:white;
-  padding:30px;
-  box-shadow:0 0 20px rgba(0,0,0,0.1);
-  border-radius:8px;
-}
-
-.section img{
+.blue{ background:#005baa !important; }
+.orange{ background:#f04e23 !important; }
+.gray{ background:#6c757d !important; }
+ .section img{
   width:100%;
   height:auto;
   display:block;
   margin-bottom:20px;
 }
 
-/* BUTTONS */
-.btn{
-  padding:12px 25px;
-  color:white;
-  text-decoration:none;
-  border-radius:6px;
-  display:inline-block;
-}
-
-.blue{ background:#005baa; }
-.orange{ background:#f04e23; }
-.gray{ background:#6c757d; }
-
-.footer{
-  text-align:center;
-  padding:20px;
-  color:#777;
-  margin-top:20px;
-}
+.blue{ background:#005baa; color:white; }
+.orange{ background:#f04e23; color:white; }
+.gray{ background:#6c757d; color:white; }
 </style>
 </head>
-
 <body>
+
 <div class="header">
   <h1>GOBI-ALTAI INVESTMENT FORUM 2026</h1>
   <p class="sub">
@@ -115,6 +50,7 @@ body{
   </p> 
   <img src="ужуужу.png" alt="Форумын баннер" style="width:100%; max-height:600px; object-fit:cover;">
 </div>
+
 <!-- TAB BUTTONS -->
 <div class="tabs">
   <button class="tab active" data-file="program-mn.html">Хөтөлбөр</button>
